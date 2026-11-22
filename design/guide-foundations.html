@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fundamentos · Trilha AI Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;650&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--color-page); color: var(--color-text); font: var(--text-body)/var(--leading-body) var(--font-sans); }
+  .wrap { max-width: var(--width-content); margin: 0 auto; padding: var(--space-12) var(--gutter); display: grid; gap: var(--space-12); }
+  .mono { font-family: var(--font-mono); font-size: var(--text-caption); line-height: var(--leading-caption); color: var(--color-text-muted); letter-spacing: .02em; text-transform: uppercase; }
+  h1 { font-size: var(--text-display); line-height: var(--leading-display); letter-spacing: var(--tracking-tight); font-weight: var(--weight-bold); }
+  h2 { font-size: var(--text-title); line-height: var(--leading-title); letter-spacing: var(--tracking-tight); font-weight: var(--weight-bold); margin-bottom: var(--space-4); }
+  section > p.lead { color: var(--color-text-muted); font-size: var(--text-lead); line-height: var(--leading-lead); max-width: var(--width-reading); margin-bottom: var(--space-6); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--space-3); }
+  .sw { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; }
+  .sw i { display: block; height: 56px; border-bottom: 1px solid var(--color-divider); }
+  .sw div { padding: var(--space-2) var(--space-3); font-size: var(--text-small); line-height: var(--leading-small); }
+  .sw code { font-family: var(--font-mono); font-size: var(--text-caption); color: var(--color-text-muted); }
+  .type-row { display: grid; grid-template-columns: 160px 1fr; gap: var(--space-4); align-items: baseline; padding: var(--space-3) 0; border-bottom: 1px solid var(--color-divider); }
+  .phases { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .phase { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-1) var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-full); background: var(--color-surface); font-size: var(--text-small); }
+  .phase b { width: 10px; height: 10px; border-radius: var(--radius-full); }
+  table { width: 100%; border-collapse: collapse; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; font-size: var(--text-small); line-height: var(--leading-small); }
+  th, td { text-align: left; padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--color-divider); vertical-align: top; }
+  th { font-family: var(--font-mono); font-size: var(--text-caption); color: var(--color-text-muted); font-weight: var(--weight-medium); text-transform: uppercase; }
+  .table-scroll { overflow-x: auto; }
+  /* live examples */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 44px; padding: 0 var(--space-6); border-radius: var(--radius-md); border: 0; font: var(--weight-medium) var(--text-body)/1 var(--font-sans); cursor: pointer; }
+  .btn-primary { background: var(--color-primary); color: var(--color-on-primary); }
+  .btn-primary.hover { background: var(--color-primary-hover); }
+  .btn-primary.pressed { background: var(--color-primary-pressed); }
+  .btn-primary.focus { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+  .btn-primary.disabled { background: var(--color-fill-2); color: var(--color-text-disabled); cursor: not-allowed; }
+  .btn-secondary { background: var(--color-fill-1); color: var(--color-text); }
+  .btn-secondary.hover { background: var(--color-fill-2); }
+  .ex-row { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; }
+  .ex { display: grid; gap: var(--space-2); justify-items: start; }
+  .card-ex { width: 220px; padding: var(--space-4); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); font-size: var(--text-small); }
+  .card-ex.hover { border-color: var(--color-border-hover); }
+  .card-ex.selected { border-color: var(--color-primary); box-shadow: inset 0 0 0 1px var(--color-primary); }
+  .card-ex.done { background: var(--color-surface); }
+  .bar { height: 6px; border-radius: var(--radius-full); background: var(--color-fill-2); overflow: hidden; margin-top: var(--space-3); }
+  .bar i { display: block; height: 100%; background: var(--color-primary); }
+  ul.rules { display: grid; gap: var(--space-2); padding-left: var(--space-6); max-width: var(--width-reading); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="mono">Trilha AI Engineer · guia</p>
+    <h1>Fundamentos</h1>
+  </header>
+
+  <section>
+    <h2>Cores por papel</h2>
+    <p class="lead">Fundo neutro e um acento laranja só para ação e progresso. Troque o tema do sistema para ver o modo escuro.</p>
+    <div class="grid">
+      <div class="sw"><i style="background:var(--color-text)"></i><div>Texto<br><code>text</code></div></div>
+      <div class="sw"><i style="background:var(--color-text-muted)"></i><div>Texto secundário<br><code>text-muted</code></div></div>
+      <div class="sw"><i style="background:var(--color-page)"></i><div>Fundo da página<br><code>page</code></div></div>
+      <div class="sw"><i style="background:var(--color-surface)"></i><div>Superfície<br><code>surface</code></div></div>
+      <div class="sw"><i style="background:var(--color-fill-1)"></i><div>Preenchimento 1<br><code>fill-1</code></div></div>
+      <div class="sw"><i style="background:var(--color-fill-2)"></i><div>Preenchimento 2<br><code>fill-2</code></div></div>
+      <div class="sw"><i style="background:var(--color-primary)"></i><div>Ação e progresso<br><code>primary</code></div></div>
+      <div class="sw"><i style="background:var(--color-primary-bg)"></i><div>Destaque suave<br><code>primary-bg</code></div></div>
+      <div class="sw"><i style="background:var(--color-success)"></i><div>Concluído / certo<br><code>success</code></div></div>
+      <div class="sw"><i style="background:var(--color-danger)"></i><div>Erro / errado<br><code>danger</code></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cores das fases</h2>
+    <p class="lead">Só em marcadores pequenos da trilha (ponto, barra lateral do card). Nunca em botões nem em texto longo.</p>
+    <div class="phases">
+      <span class="phase"><b style="background:var(--phase-1)"></b>1 · Fundamentos</span>
+      <span class="phase"><b style="background:var(--phase-2)"></b>2 · Retrieval</span>
+      <span class="phase"><b style="background:var(--phase-3)"></b>3 · Agentes</span>
+      <span class="phase"><b style="background:var(--phase-4)"></b>4 · Avaliação &amp; confiança</span>
+      <span class="phase"><b style="background:var(--phase-5)"></b>5 · Produção</span>
+      <span class="phase"><b style="background:var(--phase-6)"></b>6 · Fronteira &amp; prova</span>
+      <span class="phase"><b style="background:var(--phase-7)"></b>7 · Entrevista</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tipografia</h2>
+    <p class="lead">Geist para ler, Geist Mono para códigos de nível, contagens e metadados.</p>
+    <div class="type-row"><span class="mono">display 48/52</span><span style="font-size:var(--text-display);line-height:var(--leading-display);font-weight:var(--weight-bold);letter-spacing:var(--tracking-tight)">LLM 101</span></div>
+    <div class="type-row"><span class="mono">title 28/34</span><span style="font-size:var(--text-title);line-height:var(--leading-title);font-weight:var(--weight-bold);letter-spacing:var(--tracking-tight)">Tokenização</span></div>
+    <div class="type-row"><span class="mono">title-sm 20/28</span><span style="font-size:var(--text-title-sm);line-height:var(--leading-title-sm);font-weight:var(--weight-medium)">O que um LLM realmente é</span></div>
+    <div class="type-row"><span class="mono">lead 18/28</span><span style="font-size:var(--text-lead);line-height:var(--leading-lead)">Um modelo que prevê o próximo token — e por que isso basta para conversar.</span></div>
+    <div class="type-row"><span class="mono">body 16/24</span><span>Cada aula tem uma ideia por tela e um botão Continuar.</span></div>
+    <div class="type-row"><span class="mono">small 14/20</span><span style="font-size:var(--text-small);line-height:var(--leading-small);color:var(--color-text-muted)">22 telas · prática no fim</span></div>
+    <div class="type-row"><span class="mono">caption 12/16</span><span class="mono">L1 · 12 aulas · 4 de 12 feitas</span></div>
+  </section>
+
+  <section>
+    <h2>Espaço, raio, sombra, movimento</h2>
+    <div class="table-scroll"><table>
+      <tr><th>Escala</th><th>Valores</th><th>Uso</th></tr>
+      <tr><td>Espaço</td><td>4 · 8 · 12 · 16 · 24 · 32 · 48 · 64</td><td>Base 4px. 24 entre cards, 48–64 entre seções.</td></tr>
+      <tr><td>Raio</td><td>6 · 10 · 14 · 20 · full</td><td>10 botões e campos, 14 cards, 20 card de destaque, full em pílulas.</td></tr>
+      <tr><td>Sombra</td><td><code>shadow</code>, <code>shadow-strong</code></td><td>Só no que flutua (menu, toast, aula aberta em sobreposição).</td></tr>
+      <tr><td>Largura</td><td>1120 conteúdo · 720 leitura · gutter 24 (16 no celular)</td><td></td></tr>
+      <tr><td>Movimento</td><td>150 · 250 · 350 ms, <code>cubic-bezier(.2,.7,.2,1)</code></td><td>Contido na plataforma; o movimento mora dentro das aulas.</td></tr>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>Regras de interação</h2>
+    <div class="table-scroll"><table>
+      <tr><th>Estado</th><th>Peças com borda (cards de nível/aula)</th><th>Peças sem borda (itens de lista, links de nav)</th><th>Ação principal</th></tr>
+      <tr><td>Hover</td><td>Borda escurece para <code>border-hover</code>; fundo não muda</td><td><code>tint-hover</code> por trás</td><td><code>primary-hover</code></td></tr>
+      <tr><td>Pressionado</td><td>Borda <code>border-hover</code> + <code>tint-pressed</code></td><td><code>tint-pressed</code></td><td><code>primary-pressed</code></td></tr>
+      <tr><td>Foco (só teclado)</td><td colspan="3">Anel de 2px <code>focus</code> com 2px de folga, via <code>:focus-visible</code></td></tr>
+      <tr><td>Desabilitado / em breve</td><td>Texto <code>text-muted</code>, selo “em breve”, sem hover, não clicável</td><td><code>text-disabled</code></td><td>Fundo <code>fill-2</code>, texto <code>text-disabled</code></td></tr>
+      <tr><td>Carregando</td><td colspan="2">Esqueleto em <code>fill-1</code> com o mesmo tamanho final</td><td>Mesmo tamanho, rótulo trocado por indicador</td></tr>
+      <tr><td>Selecionado / atual</td><td>Borda <code>primary</code> de 2px (próxima aula)</td><td><code>tint-selected</code>, peso da fonte igual</td><td>—</td></tr>
+      <tr><td>Concluído</td><td>Marca ✓ em <code>success</code>; card continua igual</td><td>✓ em <code>success</code></td><td>—</td></tr>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>Exemplos vivos</h2>
+    <div class="ex-row">
+      <div class="ex"><span class="mono">normal</span><button class="btn btn-primary">Continuar aula</button></div>
+      <div class="ex"><span class="mono">hover</span><button class="btn btn-primary hover">Continuar aula</button></div>
+      <div class="ex"><span class="mono">pressionado</span><button class="btn btn-primary pressed">Continuar aula</button></div>
+      <div class="ex"><span class="mono">foco</span><button class="btn btn-primary focus">Continuar aula</button></div>
+      <div class="ex"><span class="mono">desabilitado</span><button class="btn btn-primary disabled" disabled>Em breve</button></div>
+      <div class="ex"><span class="mono">secundário</span><button class="btn btn-secondary">Ver módulos</button></div>
+    </div>
+    <div class="ex-row" style="margin-top:var(--space-6)">
+      <div class="ex"><span class="mono">card normal</span><div class="card-ex"><span class="mono">L1 · aula 03</span><div style="margin-top:4px">Dentro de um LLM</div></div></div>
+      <div class="ex"><span class="mono">card hover</span><div class="card-ex hover"><span class="mono">L1 · aula 03</span><div style="margin-top:4px">Dentro de um LLM</div></div></div>
+      <div class="ex"><span class="mono">card próxima</span><div class="card-ex selected"><span class="mono" style="color:var(--color-primary-text)">L1 · próxima</span><div style="margin-top:4px">Dentro de um LLM</div><div class="bar"><i style="width:25%"></i></div></div></div>
+      <div class="ex"><span class="mono">card concluído</span><div class="card-ex done"><span class="mono" style="color:var(--color-success-text)">✓ L1 · aula 02</span><div style="margin-top:4px">Tokenização</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Como escrevemos</h2>
+    <ul class="rules">
+      <li>“Você”, frases curtas, verbo na frente: “Abra a próxima aula”, não “Clique aqui para acessar”.</li>
+      <li>Termo de mercado em inglês quando é o que você vai ouvir no trabalho (token, embedding, RAG), sempre explicado na primeira vez.</li>
+      <li>Números com unidade e em mono: <span class="mono" style="text-transform:none">22 telas</span>, <span class="mono" style="text-transform:none">4/12</span>.</li>
+      <li>Sem XP, streak, “parabéns!!!”. Progresso é dado, não festa.</li>
+    </ul>
+  </section>
+</div>
+</body>
+</html>

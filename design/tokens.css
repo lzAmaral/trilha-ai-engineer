@@ -1,0 +1,123 @@
+/* Trilha AI Engineer — tokens. Components use roles only, never raw values. */
+:root {
+  /* Text */
+  --color-text: #17181b;
+  --color-text-muted: #5e626b;
+  --color-text-placeholder: #8c919a;
+  --color-text-disabled: #a9adb4;
+  --color-on-dark: #ffffff;
+  --color-on-dark-muted: #ffffffb3;
+
+  /* Grounds */
+  --color-page: #f7f7f5;
+  --color-surface: #ffffff;
+  --color-fill-1: #f0f0ed;
+  --color-fill-2: #e6e6e2;
+  --color-inverse: #17181b;
+
+  /* Lines */
+  --color-border: #17181b1f;
+  --color-border-hover: #17181b47;
+  --color-divider: #17181b14;
+
+  /* Overlays for borderless pieces */
+  --color-tint-hover-soft: #17181b08;
+  --color-tint-hover: #17181b0d;
+  --color-tint-selected: #17181b14;
+  --color-tint-pressed: #17181b1f;
+
+  /* The one accent: action + progress */
+  --color-primary: #cc4a0a;
+  --color-primary-hover: #b8420a;
+  --color-primary-pressed: #a33a08;
+  --color-on-primary: #ffffff;
+  --color-primary-bg: #fdeee5;
+  --color-primary-text: #a33a08;
+  --color-focus: #cc4a0a;
+
+  /* Status */
+  --color-success: #1f8f4e;
+  --color-success-bg: #e6f4ec;
+  --color-success-text: #17703c;
+  --color-danger: #c8333a;
+  --color-danger-bg: #fbe9ea;
+  --color-danger-text: #a3252b;
+
+  /* Phase markers (small dots/bars on the trail only) */
+  --phase-1: #3e7bfa; /* Fundamentos */
+  --phase-2: #12a594; /* Retrieval */
+  --phase-3: #8e5cf5; /* Agentes */
+  --phase-4: #d6409f; /* Avaliação & confiança */
+  --phase-5: #2f9e44; /* Produção */
+  --phase-6: #c99a06; /* Fronteira & prova */
+  --phase-7: #6b7280; /* Entrevista */
+
+  --color-overlay: #17181b80;
+  --shadow: 0 4px 16px #17181b14, 0 1px 3px #17181b0f;
+  --shadow-strong: 0 16px 48px #17181b29, 0 2px 8px #17181b14;
+
+  /* Type */
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --text-caption: 12px;  --leading-caption: 16px;   /* mono labels: L1, 12 aulas, 18 min */
+  --text-small: 14px;    --leading-small: 20px;
+  --text-body: 16px;     --leading-body: 24px;
+  --text-lead: 18px;     --leading-lead: 28px;
+  --text-title-sm: 20px; --leading-title-sm: 28px;
+  --text-title: 28px;    --leading-title: 34px;
+  --text-display: 48px;  --leading-display: 52px;
+  --weight-regular: 400; --weight-medium: 500; --weight-bold: 650;
+  --tracking-tight: -0.02em;
+
+  /* Spacing (4px base; values in use) */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-6: 24px; --space-8: 32px; --space-12: 48px; --space-16: 64px;
+
+  /* Radius — technical, not bubbly */
+  --radius-sm: 6px; --radius-md: 10px; --radius-lg: 14px; --radius-xl: 20px; --radius-full: 999px;
+
+  /* Layout */
+  --width-content: 1120px;
+  --width-reading: 720px;
+  --gutter: 24px;
+
+  /* Motion */
+  --dur-quick: 150ms; --dur-fast: 250ms; --dur-medium: 350ms;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@media (max-width: 600px) {
+  :root { --text-display: 34px; --leading-display: 40px; --text-title: 24px; --leading-title: 30px; --gutter: 16px; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-text: #ededee; --color-text-muted: #a1a6af; --color-text-placeholder: #6f747d; --color-text-disabled: #555a62;
+    --color-on-dark: #ffffff; --color-on-dark-muted: #ffffffb3;
+    --color-page: #0f1012; --color-surface: #17181b; --color-fill-1: #1f2024; --color-fill-2: #2a2b30; --color-inverse: #ededee;
+    --color-border: #ffffff1f; --color-border-hover: #ffffff45; --color-divider: #ffffff12;
+    --color-tint-hover-soft: #ffffff08; --color-tint-hover: #ffffff0f; --color-tint-selected: #ffffff17; --color-tint-pressed: #ffffff21;
+    --color-primary: #ff7a33; --color-primary-hover: #ff8c4f; --color-primary-pressed: #f26a1f; --color-on-primary: #1a0f08;
+    --color-primary-bg: #ff7a331f; --color-primary-text: #ff9a63; --color-focus: #ff7a33;
+    --color-success: #3fbf72; --color-success-bg: #3fbf721f; --color-success-text: #6fd497;
+    --color-danger: #f0626a; --color-danger-bg: #f0626a1f; --color-danger-text: #f58c92;
+    --phase-1: #6b9bff; --phase-2: #2ec4b0; --phase-3: #a985ff; --phase-4: #ef6bbd; --phase-5: #4cc263; --phase-6: #e3b524; --phase-7: #9aa1ad;
+    --color-overlay: #000000a6;
+    --shadow: 0 4px 16px #00000059, 0 1px 3px #00000040;
+    --shadow-strong: 0 16px 48px #00000080, 0 2px 8px #00000059;
+  }
+}
+:root[data-theme="dark"] {
+  --color-text: #ededee; --color-text-muted: #a1a6af; --color-text-placeholder: #6f747d; --color-text-disabled: #555a62;
+  --color-page: #0f1012; --color-surface: #17181b; --color-fill-1: #1f2024; --color-fill-2: #2a2b30; --color-inverse: #ededee;
+  --color-border: #ffffff1f; --color-border-hover: #ffffff45; --color-divider: #ffffff12;
+  --color-tint-hover-soft: #ffffff08; --color-tint-hover: #ffffff0f; --color-tint-selected: #ffffff17; --color-tint-pressed: #ffffff21;
+  --color-primary: #ff7a33; --color-primary-hover: #ff8c4f; --color-primary-pressed: #f26a1f; --color-on-primary: #1a0f08;
+  --color-primary-bg: #ff7a331f; --color-primary-text: #ff9a63; --color-focus: #ff7a33;
+  --color-success: #3fbf72; --color-success-bg: #3fbf721f; --color-success-text: #6fd497;
+  --color-danger: #f0626a; --color-danger-bg: #f0626a1f; --color-danger-text: #f58c92;
+  --phase-1: #6b9bff; --phase-2: #2ec4b0; --phase-3: #a985ff; --phase-4: #ef6bbd; --phase-5: #4cc263; --phase-6: #e3b524; --phase-7: #9aa1ad;
+  --color-overlay: #000000a6;
+  --shadow: 0 4px 16px #00000059, 0 1px 3px #00000040;
+  --shadow-strong: 0 16px 48px #00000080, 0 2px 8px #00000059;
+}
