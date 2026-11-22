@@ -1020,7 +1020,7 @@ const fusoes = {
         out += '</g>';
       });
       // Passo 1: os 2 bytes do "á" marcados.
-      if (s === 0) { const be = M.enter(t0, .8, .4), x0 = 7 * L.uw, y = L.rows[1] + 40; out += `<g opacity="${be.opacity.toFixed(3)}"><path d="M${x0 + 4} ${y} v8 H${x0 + 2 * L.uw - 4} v-8" fill="none" stroke="var(--accent)" stroke-width="2.5"/>${txt(x0 + L.uw, y + 30, 'á = 2 bytes', { cls: 'acc', fs: 20, anchor: 'middle', qa: 'bytes' })}</g>`; }
+      if (s === 0) { const be = M.enter(t0, .8, .4), x0 = RW[1].units.findIndex(u => u.lab === "C3") * L.uw, y = L.rows[1] + 40; out += `<g opacity="${be.opacity.toFixed(3)}"><path d="M${x0 + 4} ${y} v8 H${x0 + 2 * L.uw - 4} v-8" fill="none" stroke="var(--accent)" stroke-width="2.5"/>${txt(x0 + L.uw, y + 30, 'á = 2 bytes', { cls: 'acc', fs: 20, anchor: 'middle', qa: 'bytes' })}</g>`; }
       return out;
     };
     const WIDE = { w: 1240, h: 430, uw: 90, fs: 30, rows: [130, 330], rx: 1240, ry: 24, ra: 'end', nx: 1240, ny: y => y, na: 'end' };
