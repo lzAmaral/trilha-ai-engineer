@@ -10,6 +10,7 @@
 		getState: () => { slide: number };
 		getManifest: () => { slides: unknown[] };
 		seek: (q: { slide: number; step?: number; time?: number }) => unknown;
+		replay: () => void;
 	};
 
 	let { data }: PageProps = $props();
@@ -45,9 +46,15 @@
 				.then(() => {
 					clearTimeout(limite);
 					fase = 'pronta';
+					// Setas do teclado só funcionam com o foco dentro da aula.
+					setTimeout(() => frame?.contentWindow?.focus(), 0);
 					const total = lesson.getManifest().slides.length;
 					const antes = progresso.de(nivel, modulo);
-					if (antes && !antes.feita && antes.tela > 0 && antes.tela < total) lesson.seek({ slide: antes.tela, step: 0, time: 0 });
+					if (antes && !antes.feita && antes.tela > 0 && antes.tela < total) {
+						// Retoma no começo da tela onde parou e toca o primeiro passo, como o player faz ao entrar numa tela.
+						lesson.seek({ slide: antes.tela, step: 0, time: 0 });
+						lesson.replay();
+					}
 					const marcar = () => progresso.registrar(nivel, modulo, lesson.getState().slide, total);
 					marcar();
 					intervalo = setInterval(marcar, 800);
