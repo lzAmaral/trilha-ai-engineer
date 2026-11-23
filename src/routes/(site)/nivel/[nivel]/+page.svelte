@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fase, niveis } from '#lib/roadmap.ts';
-	import { aulasDoNivel, numero, temAula } from '#lib/aulas.ts';
+	import { aulasDoNivel, nivelTemAulas, numero, temAula } from '#lib/aulas.ts';
 	import { progresso } from '#lib/progresso.svelte.ts';
 	import type { PageProps } from './$types';
 
@@ -12,6 +12,7 @@
 	let proxima = $derived(progresso.carregado ? progresso.proxima() : undefined);
 	let anterior = $derived(niveis.find((n) => n.n === nivel.n - 1));
 	let seguinte = $derived(niveis.find((n) => n.n === nivel.n + 1));
+	let comAulas = $derived(pub === 0 ? niveis.find(nivelTemAulas) : undefined);
 </script>
 
 <svelte:head><title>L{nivel.n} · {nivel.titulo} · Trilha AI Engineer</title></svelte:head>
@@ -47,6 +48,12 @@
 			{#if pub === 0}
 				<span class="pill">Em breve</span>
 				<p class="small muted">As aulas deste nível ainda estão em produção. Os módulos abaixo mostram o que vai ser coberto.</p>
+				{#if comAulas}
+					<a class="card aviso" href="/nivel/{comAulas.slug}">
+						<span class="small">As aulas prontas começam no <strong>{`L${comAulas.n} · ${comAulas.titulo}`.replaceAll(' ', '\u00a0')}</strong>.</span>
+						<span class="btn btn-primary btn-sm">Ir para o L{comAulas.n} →</span>
+					</a>
+				{/if}
 			{:else}
 				<span class="big">{feitas}<span class="muted">/{nivel.modulos.length}</span></span>
 				<div class="bar {feitas === nivel.modulos.length ? 'ok' : ''}"><i style="width:{(feitas / nivel.modulos.length) * 100}%"></i></div>
@@ -113,6 +120,8 @@
 	.stat { display: grid; gap: var(--space-3); align-content: end; }
 	.stat .big { font: var(--weight-bold) var(--text-display)/1 var(--font-mono); letter-spacing: -.04em; }
 	.stat .pill { justify-self: start; }
+	.aviso { display: grid; gap: var(--space-3); padding: var(--space-4); }
+	.aviso .btn { justify-self: start; }
 	.aulas { list-style: none; display: grid; gap: var(--space-3); }
 	.aula { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: var(--space-4); align-items: center; padding: var(--space-4) var(--space-6) var(--space-4) var(--space-4); }
 	.aula.next { padding: calc(var(--space-4) - 1px) calc(var(--space-6) - 1px) calc(var(--space-4) - 1px) calc(var(--space-4) - 1px); }
