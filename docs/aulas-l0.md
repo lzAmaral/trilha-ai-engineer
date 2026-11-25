@@ -1,6 +1,6 @@
 # Aulas do L0 · Fundamentos de engenharia de software
 
-Especificação das 8 aulas do L0 (issue #1). A receita de produção é a mesma do L1 (veja `docs/aulas-pendentes.md` › "Como produzir uma aula").
+Especificação das 8 aulas do L0 (issue #1). As 8 foram produzidas em 25/11/2026. A receita de produção é a mesma do L1 (veja `docs/aulas-pendentes.md` › "Como produzir uma aula").
 
 | Item | Valor |
 |---|---|
