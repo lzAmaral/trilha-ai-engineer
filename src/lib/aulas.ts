@@ -5,7 +5,7 @@ import { niveis, type Modulo, type Nivel } from './roadmap.ts';
 export const publicadas: Record<string, string[]> = {
 	l0: ['python', 'web-http', 'fastapi', 'dados', 'git', 'dev-com-ia', 'containers', 'projeto'],
 	l1: ['o-que-e-um-llm', 'tokenizacao', 'dentro-de-um-llm', 'como-llms-aprendem', 'inferencia', 'sampling', 'raciocinio', 'janela-de-contexto', 'falhas', 'panorama', 'benchmarks', 'escolher-modelo'],
-	l2: ['primeiras-chamadas', 'streaming', 'saidas-estruturadas']
+	l2: ['primeiras-chamadas', 'streaming', 'langchain', 'saidas-estruturadas']
 };
 
 export const numero = (nivel: Nivel, modulo: Modulo) =>
