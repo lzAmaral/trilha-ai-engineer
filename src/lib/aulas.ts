@@ -4,8 +4,8 @@ import { niveis, type Modulo, type Nivel } from './roadmap.ts';
 // Ao publicar uma aula nova, acrescente o slug do módulo aqui.
 export const publicadas: Record<string, string[]> = {
 	l0: ['python', 'web-http', 'fastapi', 'dados', 'git', 'dev-com-ia', 'containers', 'projeto'],
-	l2: ['primeiras-chamadas'],
-	l1: ['o-que-e-um-llm', 'tokenizacao', 'dentro-de-um-llm', 'como-llms-aprendem', 'inferencia', 'sampling', 'raciocinio', 'janela-de-contexto', 'falhas', 'panorama', 'benchmarks', 'escolher-modelo']
+	l1: ['o-que-e-um-llm', 'tokenizacao', 'dentro-de-um-llm', 'como-llms-aprendem', 'inferencia', 'sampling', 'raciocinio', 'janela-de-contexto', 'falhas', 'panorama', 'benchmarks', 'escolher-modelo'],
+	l2: ['primeiras-chamadas', 'streaming']
 };
 
 export const numero = (nivel: Nivel, modulo: Modulo) =>
