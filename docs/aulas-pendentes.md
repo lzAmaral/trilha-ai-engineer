@@ -1,8 +1,7 @@
 # Aulas pendentes do L1 · LLM 101
 
-As aulas 01–09 foram produzidas em 22/11/2026. As aulas **10, 11 e 12** ficaram para depois.
-Este arquivo guarda a especificação de cada uma, para produzi-las com a skill `aula-interativa`
-do mesmo jeito que as anteriores. Issue: #2.
+As aulas 01–09 foram produzidas em 22/11/2026 e as **10, 11 e 12** em 23–24/11/2026: o L1 está completo.
+Este arquivo fica como registro da receita e das especificações das 10–12, e como modelo para os próximos níveis. Issue: #2.
 
 ## Como produzir uma aula (receita usada nas 01–09)
 
