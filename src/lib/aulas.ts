@@ -3,7 +3,7 @@ import { niveis, type Modulo, type Nivel } from './roadmap.ts';
 // Aulas já produzidas (arquivo em static/aulas/<nivel>/<NN>-<slug>.html).
 // Ao publicar uma aula nova, acrescente o slug do módulo aqui.
 export const publicadas: Record<string, string[]> = {
-	l0: ['python', 'web-http', 'fastapi', 'dados', 'git', 'containers'],
+	l0: ['python', 'web-http', 'fastapi', 'dados', 'git', 'dev-com-ia', 'containers'],
 	l1: ['o-que-e-um-llm', 'tokenizacao', 'dentro-de-um-llm', 'como-llms-aprendem', 'inferencia', 'sampling', 'raciocinio', 'janela-de-contexto', 'falhas', 'panorama', 'benchmarks', 'escolher-modelo']
 };
 
